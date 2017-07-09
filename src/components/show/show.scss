@@ -1,0 +1,15 @@
+.show{
+    display: flex; position: fixed; top: 44px; width: 100%; bottom: 44px; height: 100%; overflow: hidden;
+    .menu-wrap{
+        margin-right: -15px; width: auto; height: 100%; overflow-x: hidden; border: 1px solid #ccc; background-color: #333744; z-index: 10;
+        .menu-hide{
+            height: 28px; line-height: 28px; background-color: #333744; border-bottom: 1px solid #ccc; color: #ccc; cursor: pointer; text-align: center;
+            &:hover{
+                background-color: #6E6E6E;
+            }
+        }
+    }
+    .content-wrap{
+        flex: 1; overflow-y: scroll; padding-bottom: 5px; z-index: 20; background-color: #fff; color: #000;
+    }
+}

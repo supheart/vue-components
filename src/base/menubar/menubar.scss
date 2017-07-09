@@ -1,0 +1,47 @@
+.menubar{
+    .menu-left{
+        width: 200px; background-color: #42485B; color: #fff; text-align: center; transition: all .2s linear; overflow: hidden;
+        .menu-item{
+            line-height: 42px; cursor: pointer; box-sizing: border-box; overflow: hidden;
+            .menu-link, .menu-text{
+                height: 36px; display: block; position: relative;
+                &:hover{
+                    background-color: #2bb6cc;
+                }
+                &.active{
+                    background-color: #0994AA;
+                }
+                .text{
+                    margin-left: 15px; margin-right: 15px;
+                }
+                .icon-tip{
+                    position: absolute; left: 10px; top: 10px; width: 15px; height: 15px; font-size: 12px; transition: all .2s linear; transform:rotate(-90deg);
+                    &.rotate{
+                        transform:rotate(0);
+                    }
+                }
+                .tip{
+                    position: absolute; top: 10px; right: 20px; width: 16px; height: 16px; line-height: 16px; border-radius: 50%; background-color: #ccc; font-size: 12px; color: red;
+                }
+            }
+        }
+        .down {
+            background-color: #888E90; height: 0; transition: all .2s linear;
+            .menu-item{
+                line-height: 36px; 
+                .menu-link, .menu-text{
+                    height: 36px;
+                }
+            }
+        }
+        &.mini{
+            .menu-item{
+                .menu-link, .menu-text{
+                    .icon-tip{
+                        left: 6px;
+                    }
+                }
+            }
+        }
+    }
+}
