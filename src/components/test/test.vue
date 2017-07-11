@@ -2,7 +2,7 @@
     <div class="test">
         <div class="menu-wrap">
             <div class="menu-hide" @click="toggleMenu"><i class="iconfont icon-category"></i></div>
-            <menubar ref="menubar" :menus="menus" :rightMenu="menus[1].children" :isMini="isMini"></menubar>
+            <menubar ref="menubar" :menus="menus" :theme="theme" :rightMenu="menus[1].children" :isMini="isMini" @itemClick="menuClick"></menubar>
         </div>
         <div class="content-wrap">
             <p v-for="t in 100">aaaaaa</p>
@@ -26,7 +26,10 @@ export default {
             {id:'b',text:'菜单菜单',icon:'icon-comments',tips:'提示',url:'#',children:[
                 {id:'b1',text:'菜单1',click:'test3',icon:'icon-all',url:'#', children: [
                     {id:'bbbb1',text:'配置配置',icon:'icon-pic',tips:'提示',click:'test3'},
-                    {id:'bbbb2',text:'退出',icon:'icon-pic',tips:'提示',vlink:'/workdesk',url:'#'}
+                    {id:'bbbb2',text:'退出',icon:'icon-pic',tips:'提示',vlink:'/workdesk',url:'#', children: [
+                        {id:'cbbbb1',text:'配置配置',icon:'icon-pic',tips:'提示',click:'test3'},
+                        {id:'cbbbb2',text:'退出',icon:'icon-pic',tips:'提示',vlink:'/workdesk',url:'#', children: []}
+                    ]}
                 ]},
                 {id:'b2',text:'菜单2',click:'test3',icon:'icon-cart',url:'#'}
             ]},
@@ -47,10 +50,25 @@ export default {
                 {id:'aadsd',text:'退出',icon:'home',tips:'提示',vlink:'/workdesk',url:'#'}
             ]}
         ];
+        this.theme = {
+            active: 'red',
+            hover: 'yellow',
+            width: '100px',
+            bgColor: 'red',
+            color: 'blue',
+            level:[
+                {bgColor: 'green', fontColor: '#ccc', height: '42px'},
+                {bgColor: 'blue', fontColor: '#000', height: '36px'},
+                {bgColor: 'yellow', fontColor: '#d9d9d9', height: '28px'}
+            ]
+        };
     },
     methods: {
         toggleMenu() {
             this.isMini = !this.isMini;
+        },
+        menuClick(menu) {
+            console.log(menu.id, menu);
         }
     },
     components: {
